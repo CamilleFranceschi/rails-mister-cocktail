@@ -11,7 +11,7 @@ def index
   private
 
   def set_ingredient
-    @ingredient = ingredient.find(params[:id])
+    @ingredient = Ingredient.find(params[:id])
   end
 
 

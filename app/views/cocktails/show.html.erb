@@ -10,9 +10,17 @@
   <%= f.button :submit %>
 <% end %>
 
+<% @cocktail.doses.each do |dose| %>
+    <li>
+        <%= dose.description %>
+        <%= dose.ingredient.name %>
+    </li>
+<% end %>
 
+<%= link_to "Destroy dose", cocktail_dose_path(@dose) %>
 
 <%= link_to "Edit", edit_cocktail_path(@cocktail) %>
+
 
 <%= link_to "Back", cocktails_path %>
 
