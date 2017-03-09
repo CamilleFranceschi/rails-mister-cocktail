@@ -4,7 +4,7 @@
   <% @cocktails.each do |cocktail| %>
     <li>
       <h3>
-        <%=cocktail.name %>
+        <%=link_to cocktail.name, cocktail_path(cocktail) %>
       </h3>
     </li>
   <% end %>

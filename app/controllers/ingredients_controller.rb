@@ -6,28 +6,7 @@ def index
   def show
   end
 
-  def new
-    @ingredient = Ingredient.new
-  end
 
-  def create
-    @ingredient = Ingredient.new(ingredient_params)
-    @ingredient.save
-    redirect_to ingredients_path
-  end
-
-  def edit
-  end
-
-  def update
-    @ingredient.update(ingredient_params)
-    redirect_to ingredients_path
-  end
-
-  def destroy
-    @ingredient.destroy
-    redirect_to ingredients_path
-  end
 
   private
 
@@ -35,8 +14,5 @@ def index
     @ingredient = ingredient.find(params[:id])
   end
 
-  def ingredient_params
-    params.require(:ingredient).permit(:name)
-  end
 
 end

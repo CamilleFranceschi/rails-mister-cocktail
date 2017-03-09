@@ -1,10 +1,19 @@
 <h1>Those are the details of the cocktail: <%= @cocktail.name %></h1>
+<p>mon formulaire</p>
+
+<%= simple_form_for ([@cocktail, @dose]) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :description %>
+  <%= f.input :ingredient_id, collection: Ingredient.all %>
+  <% #= f.input :ingredient, collection: Ingredient.all.map {|i| i.name} %>
+  <!-- name par defaut il sait qu'il doit récupérer le name dans l'objet -->
+  <%= f.button :submit %>
+<% end %>
+
 
 
 <%= link_to "Edit", edit_cocktail_path(@cocktail) %>
-<%= link_to "Destroy", cocktail_path(@cocktail), method: :delete, data: { confirm: "Are you sure?" } %>
+
 <%= link_to "Back", cocktails_path %>
 
-
-<%= link_to "Add a cocktail", new_cocktail_path(@cocktail.id), class: "btn btn-primary" %>
 
