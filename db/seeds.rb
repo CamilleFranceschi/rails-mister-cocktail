@@ -5,3 +5,28 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+if Rails.env.development?
+  Ingredient.destroy_all
+  ingredients_attributes = [
+    {
+      name:         "lemon"
+    },
+    {
+      name:         "mint"
+    },
+    {
+      name:         "sugar"
+    },
+    {
+      name:         "rhum"
+    },
+    {
+      name:         "whiskey"
+    },
+    {
+      name:         "vodka"
+    }
+  ]
+  ingredients_attributes.each { |params| Ingredient.create!(params) }
+end
