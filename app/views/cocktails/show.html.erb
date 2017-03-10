@@ -1,5 +1,4 @@
 <h1>Those are the details of the cocktail: <%= @cocktail.name %></h1>
-<p>mon formulaire</p>
 
 <%= simple_form_for ([@cocktail, @dose]) do |f| %>
   <%= f.error_notification %>
@@ -18,6 +17,21 @@
     <%= link_to "Destroy dose", dose_path(dose), method: :delete, data: { confirm: "Are you sure ?" } %>
 <% end %>
 
+
+
+
+<% @cocktail.photos.each do |photo| %>
+  <% if photo.nil? %>
+    <div class="card"
+      style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+             url('<%= cl_image_path photo.path, height: 300, width: 200, crop: :fill %>')">
+  <% else %>
+    <div class="card"
+      style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2))">
+  <% end %>
+      <div class="card-category">Glouglou</div>
+    </div>
+<% end %>
 
 
 <%= link_to "Edit", edit_cocktail_path(@cocktail) %>

@@ -19,7 +19,7 @@ class CocktailsController < ApplicationController
     if @cocktail.save
       redirect_to cocktail_path(@cocktail)
     else
-      render 'cocktails/@cocktail.id/show'
+      render 'cocktails/new'
     end
   end
 
@@ -45,7 +45,7 @@ class CocktailsController < ApplicationController
   end
 
   def cocktail_params
-    params.require(:cocktail).permit(:name)
+    params.require(:cocktail).permit(:name, photos: [])
   end
 
 
